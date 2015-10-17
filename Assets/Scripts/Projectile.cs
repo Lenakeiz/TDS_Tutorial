@@ -3,13 +3,14 @@ using System.Collections;
 
 public class Projectile : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	public float speed = 10.0f;
+
+	public void SetSpeed(float newspeed)
+	{
+		speed = newspeed;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-	
+		gameObject.transform.Translate(Vector3.forward * Time.deltaTime * speed);
 	}
 }

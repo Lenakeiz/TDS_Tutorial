@@ -18,6 +18,14 @@ public class GunController : MonoBehaviour {
 		equippedGun.transform.SetParent(weaponHolder,true);
 	}
 
+	public void Shoot()
+	{
+		if(equippedGun != null)
+		{
+			equippedGun.Shoot();
+		}
+	}
+
 	void Start () {
 		if(startingGun != null)
 		{

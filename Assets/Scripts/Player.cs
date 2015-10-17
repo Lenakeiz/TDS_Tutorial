@@ -2,15 +2,18 @@
 using System.Collections;
 
 [RequireComponent(typeof(PlayerController))]
+[RequireComponent(typeof(GunController))]
 public class Player : MonoBehaviour {
 
 	public float moveSpeed = 5.0f;
 	private PlayerController controller;
+	private GunController gunController;
 
 	Camera cam;
 
 	void Start () {
 		controller = GetComponent<PlayerController>();
+		gunController = GetComponent<GunController>();
 		cam = Camera.main;
 	}
 
@@ -30,6 +33,12 @@ public class Player : MonoBehaviour {
 			Vector3 rayPoint = ray.GetPoint(rayDistance);
 			Debug.DrawLine(ray.origin, rayPoint, Color.red);
 			controller.LookAt(rayPoint);
+		}
+
+		//Weaponinput
+		if(Input.GetMouseButton(0))
+		{
+			gunController.Shoot();
 		}
 
 	}
